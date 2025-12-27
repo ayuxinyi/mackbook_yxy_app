@@ -36,7 +36,13 @@ const performanceImages = [
   { id: "p7", src: "/performance7.png" },
 ];
 
-const performanceImgPositions = [
+const performanceImgPositions: Array<{
+  id: string;
+  left?: number;
+  right?: number;
+  bottom?: number;
+  transform?: string;
+}> = [
   {
     id: "p1",
     left: 5,

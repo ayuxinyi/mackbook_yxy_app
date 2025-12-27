@@ -41,38 +41,32 @@ export const ShowcaseSection = () => {
             <h2>Rocket Chip</h2>
             <div className="space-y-5 mt-7 pe-10">
               <p>
-                Introducing{" "}
-                <span className="text-white">
-                  M4, the next generation of Apple silicon
-                </span>
-                . M4 powers
+                M4，全新登场，
+                <span className="text-white">下一代 Apple 自研芯片</span>
+                ，强劲性能，为你的创意与效率重构可能。
               </p>
               <p>
-                It drives Apple intelligence on iPad Pro, so you can write,
-                create, and accomplish more with ease. All in a design that's
-                unbelievably thin, light, and powerful.
+                它为 iPad Pro 注入 Apple Intelligence，
+                无论是书写、创作，或处理专业任务，都更加从容流畅。
+                薄、轻，却依然强大。
               </p>
               <p>
-                A brand-new display engine delivers breathtaking precision,
-                color accuracy, and brightness. And a next-gen GPU with
-                hardware-accelerated ray tracing brings console-level graphics
-                to your fingertips.
+                全新的显示引擎带来惊人的精度、色彩还原与亮度表现。 新一代 GPU
+                支持硬件加速光线追踪， 将主机级画面渲染能力，带到你的指尖。
               </p>
-              <p className="text-primary">
-                Learn more about Apple Intelligence
-              </p>
+              <p className="text-primary">了解 Apple Intelligence</p>
             </div>
           </div>
           <div className="max-w-3xs space-y-14">
             <div className="space-y-2">
-              <p>Up to</p>
-              <h3>4x faster</h3>
-              <p>pro rendering performance than M2</p>
+              <p>最高可达</p>
+              <h3>快 4 倍</h3>
+              <p>专业性能渲染速度（相比 M2）</p>
             </div>
             <div className="space-y-2">
-              <p>Up to</p>
-              <h3>1.5x faster</h3>
-              <p>CPU performance than M2</p>
+              <p>最高可达</p>
+              <h3>提升 1.5 倍</h3>
+              <p>CPU 性能表现（相比 M2）</p>
             </div>
           </div>
         </div>
