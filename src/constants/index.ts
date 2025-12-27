@@ -128,6 +128,11 @@ const footerLinks = [
   { label: "网站地图", link: "#" },
 ];
 
+const SCALE_LARGE_DESKTOP = 0.08;
+const SCALE_LARGE_MOBILE = 0.05;
+const SCALE_SMALL_DESKTOP = 0.06;
+const SCALE_SMALL_MOBILE = 0.03;
+
 export {
   features,
   featureSequence,
@@ -136,4 +141,8 @@ export {
   noChangeParts,
   performanceImages,
   performanceImgPositions,
+  SCALE_LARGE_DESKTOP,
+  SCALE_LARGE_MOBILE,
+  SCALE_SMALL_DESKTOP,
+  SCALE_SMALL_MOBILE,
 };
