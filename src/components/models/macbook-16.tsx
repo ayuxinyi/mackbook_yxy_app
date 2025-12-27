@@ -2,7 +2,7 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import { useEffect, type JSX } from "react";
 import type { GLTFResult } from "../../types/gltf";
 import useMacbookStore from "../../store";
-import { Color, Mesh } from "three";
+import { Color, Mesh, SRGBColorSpace } from "three";
 import { noChangeParts } from "../../constants";
 
 export function MacbookModel16(props: JSX.IntrinsicElements["group"]) {
@@ -22,7 +22,13 @@ export function MacbookModel16(props: JSX.IntrinsicElements["group"]) {
     });
   }, [color, scene]);
 
-  const texture = useTexture("/screen.png");
+  const texture = useTexture("/screen.png", texture => {
+    // 处理纹理颜色空间,使用标准的SRGBColorSpace，这样可以保证图片的颜色空间与模型一致
+    texture.colorSpace = SRGBColorSpace;
+    // 标记纹理需要更新，这样可以确保纹理颜色空间被正确应用
+    texture.needsUpdate = true;
+  });
+
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -110,11 +116,7 @@ export function MacbookModel16(props: JSX.IntrinsicElements["group"]) {
         material={materials.JvMFZolVCdpPqjj}
         rotation={[Math.PI / 2, 0, 0]}
       />
-      <mesh
-        geometry={nodes.Object_123.geometry}
-        material={materials.sfCQkHOWyrsLmor}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
+      <mesh geometry={nodes.Object_123.geometry} rotation={[Math.PI / 2, 0, 0]}>
         {/* 设置材质的纹理，用电脑图片当做纹理 */}
         <meshBasicMaterial map={texture} />
       </mesh>
