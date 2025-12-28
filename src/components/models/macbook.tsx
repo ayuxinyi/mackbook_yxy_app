@@ -1,11 +1,25 @@
-import { useGLTF } from "@react-three/drei";
-import type { JSX } from "react";
+import { useGLTF, useVideoTexture } from "@react-three/drei";
+import { useEffect, type JSX } from "react";
 import type { GLTFResult } from "../../types/gltf";
+import useMacbookStore from "../../store";
+import { Color, Mesh } from "three";
 
 export function MacbookModel(props: JSX.IntrinsicElements["group"]) {
-  const { nodes, materials } = useGLTF(
+  const { color, texture } = useMacbookStore();
+  const { nodes, materials, scene } = useGLTF(
     "/models/macbook-transformed.glb"
   ) as unknown as GLTFResult;
+
+  // 获取视频纹理
+  const screen = useVideoTexture(texture);
+
+  useEffect(() => {
+    scene.traverse(child => {
+      if (child instanceof Mesh) {
+        child.material.color = new Color(color);
+      }
+    });
+  }, [scene, color]);
 
   return (
     <group {...props} dispose={null}>
@@ -94,11 +108,9 @@ export function MacbookModel(props: JSX.IntrinsicElements["group"]) {
         material={materials.JvMFZolVCdpPqjj}
         rotation={[Math.PI / 2, 0, 0]}
       />
-      <mesh
-        geometry={nodes.Object_123.geometry}
-        material={materials.sfCQkHOWyrsLmor}
-        rotation={[Math.PI / 2, 0, 0]}
-      />
+      <mesh geometry={nodes.Object_123.geometry} rotation={[Math.PI / 2, 0, 0]}>
+        <meshBasicMaterial map={screen} />
+      </mesh>
       <mesh
         geometry={nodes.Object_127.geometry}
         material={materials.ZCDwChwkbBfITSW}
